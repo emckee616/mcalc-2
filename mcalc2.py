@@ -5,7 +5,7 @@ import math
 # 
 # TO-DO: 
 # learn how to use github properly
-# make github page for this so i can access on laptop also
+# ~~make github page for this so i can access on laptop also~~
 # make digital version of docs
 # add more operations
 # after all operations are added, add gui??? maybe???
@@ -39,6 +39,10 @@ def subtractionPart(x):
 def multiplicationPart(x):
     multiPart = float(x)
     return multiPart
+
+def divisionPart(x):
+    divPart = float(x)
+    return divPart
 
 # display welcome message and init operationPick func
 operationsList = ["Add", "Subtract", "Multiply", "Divide"]
@@ -87,3 +91,15 @@ elif selectedOperation == 2:
     print(result)
 
 # division
+elif selectedOperation == 3:
+    divPartTotal = int(input("\nHow many values are there in the problem?\n"))
+    divPartList = []
+    divPart = divisionPart(input("\nPlease input the first number to be divided from.\n"))
+    result = divPart
+    for x in range(0,(divPartTotal - 1)):
+        divPart = divisionPart(input("\nPlease input the next number to divide from the last number.\n"))
+        divPartList.append(divPart)
+    for y in divPartList:
+        result = result / y
+    print("\n")
+    print(result)
