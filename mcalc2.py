@@ -3,6 +3,8 @@ import math
 # docs are in your favorite orange notebook :]
 # dw i made sure to include readability linebreaks
 # 
+# Operations list is below functions
+#
 # TO-DO: 
 # learn how to use github properly
 # ~~make github page for this so i can access on laptop also~~
@@ -14,8 +16,8 @@ def welcomeMessage():
     print("Hi, welcome to MCalc 2.0. A completely rewritten version of my first 'real' python project.")
     print("Current operations:")
     for x in range(0,len(operationsList)):
-        print("    " + operationsList[x] + "\n ===============")
-    operation = input("Please input the operation of your choice, worded as is in the list, with no space before/afterwards \n")
+        print("    " + operationsList[x] + "\n ==============================")
+    operation = input("Please input the operation of your choice, worded as is in the list. \n")
     if operation.islower() == False:
         operation = operation.lower()
     elif operation.isalpha() == False:
@@ -27,6 +29,10 @@ def operationPick():
         if operation == str(operationsList[x]).lower():
             selectedOperation = int(x)
             return selectedOperation
+        
+def resultFunc(x):
+    print("\n ==============================")
+    print(x)
 
 def additionPart(x):
     summand = float(x)
@@ -44,13 +50,16 @@ def divisionPart(x):
     divPart = float(x)
     return divPart
 
-# display welcome message and init operationPick func
-operationsList = ["Add", "Subtract", "Multiply", "Divide"]
+def absoluteValuePart(x):
+    absPart = float(x)
+    return absPart
+# display welcome message and init operationPick func ==================================
+operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value"]
 operation = welcomeMessage()
 operationPick()
 selectedOperation = operationPick()
 
-#addition
+#addition ================================
 if selectedOperation == 0:
     summandTotal = int(input("\nHow many values are there in the problem?\n"))
     summandList = []
@@ -60,10 +69,9 @@ if selectedOperation == 0:
         summandList.append(summand)
     for y in summandList:
         result = result + y
-    print("\n")
-    print(result)
+    resultFunc(result)
 
-# subtraction
+# subtraction ==============================
 elif selectedOperation == 1:
     subPartTotal = int(input("\nHow many values are there in the problem?\n"))
     subPartList = []
@@ -74,10 +82,10 @@ elif selectedOperation == 1:
         subPartList.append(subPart)
     for y in subPartList:
         result = result - y
-    print("\n")
-    print(result)
+    resultFunc(result)
 
-# multiplication
+
+# multiplication ==========================
 elif selectedOperation == 2:
     multiPartTotal = int(input("\nHow many values are there in the problem?\n"))
     multiPartList = []
@@ -87,10 +95,10 @@ elif selectedOperation == 2:
         multiPartList.append(multiPart)
     for y in multiPartList:
         result = result * y
-    print("\n")
-    print(result)
+    resultFunc(result)
 
-# division
+
+# division ==============================
 elif selectedOperation == 3:
     divPartTotal = int(input("\nHow many values are there in the problem?\n"))
     divPartList = []
@@ -101,5 +109,17 @@ elif selectedOperation == 3:
         divPartList.append(divPart)
     for y in divPartList:
         result = result / y
-    print("\n")
-    print(result)
+    resultFunc(result)
+
+
+# absolute value =====================
+elif selectedOperation == 4:
+    absPartTotal = int(input("\nHow many values are there?\n"))
+    absPartList = []
+    for x in range(0, absPartTotal):
+        absPart = absoluteValuePart(input("\nEnter a value.\n"))
+        absPartList.append(absPart)
+    for y in absPartList:
+        result = abs(y)
+        resultFunc(result)
+
