@@ -53,13 +53,22 @@ def divisionPart(x):
 def absoluteValuePart(x):
     absPart = float(x)
     return absPart
-# display welcome message and init operationPick func ==================================
-operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value"]
+
+def powerPart(x):
+    powPart = float(x)
+    return powPart
+
+def powerPart2(x):
+    powPart2 = float(x)
+    return powPart2
+
+# display welcome message and init operationPick func =====================
+operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value", "Exponents"]
 operation = welcomeMessage()
 operationPick()
 selectedOperation = operationPick()
 
-#addition ================================
+#addition =====================
 if selectedOperation == 0:
     summandTotal = int(input("\nHow many values are there in the problem?\n"))
     summandList = []
@@ -71,7 +80,7 @@ if selectedOperation == 0:
         result = result + y
     resultFunc(result)
 
-# subtraction ==============================
+# subtraction =====================
 elif selectedOperation == 1:
     subPartTotal = int(input("\nHow many values are there in the problem?\n"))
     subPartList = []
@@ -85,7 +94,7 @@ elif selectedOperation == 1:
     resultFunc(result)
 
 
-# multiplication ==========================
+# multiplication =====================
 elif selectedOperation == 2:
     multiPartTotal = int(input("\nHow many values are there in the problem?\n"))
     multiPartList = []
@@ -98,7 +107,7 @@ elif selectedOperation == 2:
     resultFunc(result)
 
 
-# division ==============================
+# division =====================
 elif selectedOperation == 3:
     divPartTotal = int(input("\nHow many values are there in the problem?\n"))
     divPartList = []
@@ -123,3 +132,16 @@ elif selectedOperation == 4:
         result = abs(y)
         resultFunc(result)
 
+# exponents =====================
+elif selectedOperation == 5:
+    powPartTotal = int(input("\nHow many values are there?\n"))
+    powPartList = []
+    powPartList2 = []
+    for x in range(0, powPartTotal):
+        powPart = powerPart(input("\nEnter a value.\n"))
+        powPart2 = powerPart2(input("\nEnter what exponent it has.\n"))
+        powPartList.append(powPart)
+        powPartList2.append(powPart2)
+    for y in range(0,len(powPartList)):
+        result = powPartList[y] ** powPartList2[y]
+        resultFunc(result)
