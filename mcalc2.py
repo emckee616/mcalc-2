@@ -62,13 +62,22 @@ def powerPart2(x):
     powPart2 = float(x)
     return powPart2
 
+def rootPart(x):
+    rootPart = float(x)
+    return rootPart
+
+def rootPart2(x):
+    rootPart2 = float(x)
+    return rootPart2
+
 # display welcome message and init operationPick func =====================
-operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value", "Exponents"]
+operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value", "Exponents", "Roots", "Area"]
+shapesList = ["Square, Circle, Triangle, Trapezoid"]
 operation = welcomeMessage()
 operationPick()
 selectedOperation = operationPick()
 
-#addition =====================
+# addition =====================
 if selectedOperation == 0:
     summandTotal = int(input("\nHow many values are there in the problem?\n"))
     summandList = []
@@ -145,3 +154,21 @@ elif selectedOperation == 5:
     for y in range(0,len(powPartList)):
         result = powPartList[y] ** powPartList2[y]
         resultFunc(result)
+
+# nth root =====================
+elif selectedOperation == 6:
+    nthPartTotal = int(input("\nHow many values are there?\n"))
+    nthPartList = []
+    nthPartList2 = []
+    for x in range(0,nthPartTotal):
+        nthPart = rootPart(input("\nWhat is the value that you want the nth root of?\n"))
+        nthPart2 = rootPart2(input("\nWhat is the root you want?\n"))
+        nthPartList.append(nthPart)
+        nthPartList2.append(nthPart2)
+    for y in range(0,len(nthPartList)):
+        result = nthPartList[y] ** (1/nthPartList2[y])
+        resultFunc(result)
+
+# area =====================
+elif selectedOperation == 7:
+    print()
