@@ -1,5 +1,6 @@
 import math
 import time
+import os
 
 # docs are in your favorite orange notebook :]
 # dw i made sure to include readability linebreaks
@@ -28,10 +29,6 @@ def operationPick():
         if operation == str(operationsList[x]).lower():
             selectedOperation = int(x)
             return selectedOperation
-        else:
-            print("Not a valid operation!")
-            time.sleep(2)
-            welcomeMessage()
 
 def shapePick():
     for x in range(0,len(shapesList)):
@@ -56,12 +53,8 @@ def equationPart(x):
     equationPart = float(x)
     return equationPart
 
-def equationPart2(x):
-    equationPart2 = float(x)
-    return equationPart2
-
 # display welcome message and init operationPick func =====================
-operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value", "Exponents", "Roots", "Area"]
+operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value", "Exponents", "Roots", "Area", "Midpoint", "Distance"]
 shapesList = ["Square", "Rectangle", "Circle", "Triangle", "Trapezoid"]
 operation = welcomeMessage()
 selectedOperation = operationPick()
@@ -137,7 +130,7 @@ elif selectedOperation == 5:
     powPartList2 = []
     for x in range(0, powPartTotal):
         powPart = equationPart(input("\nEnter a value.\n"))
-        powPart2 = equationPart2(input("\nEnter what exponent it has.\n"))
+        powPart2 = equationPart(input("\nEnter what exponent it has.\n"))
         powPartList.append(powPart)
         powPartList2.append(powPart2)
     for y in range(0,len(powPartList)):
@@ -151,7 +144,7 @@ elif selectedOperation == 6:
     nthPartList2 = []
     for x in range(0,nthPartTotal):
         nthPart = equationPart(input("\nWhat is the value that you want the nth root of?\n"))
-        nthPart2 = equationPart2(input("\nWhat is the root you want?\n"))
+        nthPart2 = equationPart(input("\nWhat is the root you want?\n"))
         nthPartList.append(nthPart)
         nthPartList2.append(nthPart2)
     for y in range(0,len(nthPartList)):
@@ -168,7 +161,7 @@ elif selectedOperation == 7:
         rectangleSideList2 = []
         for x in range(0,shapeTotal):
             rectangleSide = equationPart(input("\nWhat is the first side length?\n"))
-            rectangleSide2 = equationPart2(input("\nWhat is the first side length?\n"))
+            rectangleSide2 = equationPart(input("\nWhat is the first side length?\n"))
             rectangleSideList.append(rectangleSide)
             rectangleSideList2.append(rectangleSide2)
         for y in range(0,len(rectangleSideList)):
@@ -205,9 +198,36 @@ elif selectedOperation == 7:
         trianglePartList2 = []
         for x in range(0,shapeTotal):
             trianglePart = equationPart(input("\nWhat is the base length?\n"))
-            trianglePart2 = equationPart2(input("\nWhat is the height?\n"))
+            trianglePart2 = equationPart(input("\nWhat is the height?\n"))
             trianglePartList.append(trianglePart)
             trianglePartList2.append(trianglePart2)
         for y in range(0,len(trianglePartList)):
             result = (trianglePartList[y] * trianglePartList2[y]) / 2
             resultFunc(result)
+    # trapezoid =====================
+    elif selectedShape == 4:
+        shapeTotal = int(input("\nHow many trapezoids are there?\n"))
+        trapezoidPartList = []
+        trapezoidPartList2 = []
+        trapezoidPartList3 = []
+        for x in range(0,shapeTotal):
+            trapezoidPart = equationPart(input("\nWhat is one base of the trapezoid?\n"))
+            trapezoidPart2 = equationPart(input("\nWhat is the other base of the trapezoid?\n"))
+            trapezoidPart3 = equationPart(input("\nWhat is the height of the trapezoid?\n"))
+            trapezoidPartList.append(trapezoidPart)
+            trapezoidPartList2.append(trapezoidPart2)
+            trapezoidPartList3.append(trapezoidPart3)
+        for y in range(0,len(trapezoidPartList)):
+            result = ((trapezoidPartList[y] + trapezoidPartList2[y]) / 2) * trapezoidPartList3[y]
+            resultFunc(result)
+
+# midpoint =====================
+elif selectedOperation == 8:
+    midpointX1 = equationPart(input("\nWhat is the first x coordinate?\n"))
+    midpointX2 = equationPart(input("\nWhat is the second x coordinate?\n"))
+    midpointY1 = equationPart(input("\nWhat is the first y coordinate?\n"))
+    midpointY2 = equationPart(input("\nWhat is the second y coordinate?\n"))
+    result = ((midpointX1 + midpointX2) / 2), ((midpointY1 + midpointY2) / 2)
+    resultFunc(result)
+
+# distance =====================
