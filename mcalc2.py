@@ -2,7 +2,6 @@ import math
 import time
 import os
 
-# docs are in your favorite orange notebook :]
 # 
 # Operations list is below functions
 #
