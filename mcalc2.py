@@ -2,8 +2,6 @@ import math
 import time
 import os
 
-# docs are in your favorite orange notebook :]
-# dw i made sure to include readability linebreaks
 # 
 # Operations list is below functions
 #
@@ -52,7 +50,7 @@ def equationPart(x):
     return equationPart
 
 # display welcome message and init operationPick func =====================
-operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value", "Exponents", "Roots", "Area", "Midpoint", "Distance"]
+operationsList = ["Add", "Subtract", "Multiply", "Divide", "Absolute-Value", "Exponents", "Roots", "Area", "Midpoint", "Distance", "Translation", "Rotation"]
 shapesList = ["Square", "Rectangle", "Circle", "Triangle", "Trapezoid"]
 operation = welcomeMessage()
 selectedOperation = operationPick()
@@ -230,6 +228,65 @@ elif selectedOperation == 8:
 
 # distance =====================
 elif selectedOperation == 9:
+    distanceX1 = equationPart(input("\nWhat is the first x coordinate?\n"))
+    distanceX2 = equationPart(input("\nWhat is the second x coordinate?\n"))
+    distanceY1 = equationPart(input("\nWhat is the first y coordinate?\n"))
+    distanceY2 = equationPart(input("\nWhat is the second y coordinate?\n"))
+    result1 = ((distanceX2 + distanceX1) ** 2) + ((distanceY2 + distanceY1) ** 2)
+    result2 = result1 ** 0.5
+    resultFunc(result2)
+
+# translation =====================
+elif selectedOperation == 10:
+    pointTotal = int(input("\nHow many points are there?\n"))
+    pointList = []
+    pointList2 = []
+    transList = []
+    transList2 = []
+    for x in range(0,pointTotal):
+        pointX = equationPart(input("\nWhat is the x coordinate of the point?\n"))
+        pointY = equationPart(input("\nWhat is the y coordinate of the point?\n"))
+        transX = equationPart(input("\nWhat is the x translation? (use negative number for moving left/down)\n"))
+        transY = equationPart(input("\nWhat is the y translation? (use negative number for moving left/down)\n"))
+        pointList.append(pointX)
+        pointList2.append(pointY)
+        transList.append(transX)
+        transList2.append(transY)
+    for y in range(0,len(pointList)):
+        result = str(pointList[y] + transList[y]) + " " + str(pointList2[y] + transList2[y])
+        resultFunc(result)
+
+# rotation =====================
+elif selectedOperation == 11:
+    pointTotal = int(input("\nHow many points are there?\n"))
+    pointList = []
+    pointList2 = []
+    directionsList = ["Clockwise", "Counter Clockwise"]
+    degreeList = ["90", "180", "270", "360"]
+    for x in range(0,pointTotal):
+        pointX = equationPart(input("\nWhat is the x coordinate of the point?\n"))
+        pointY = equationPart(input("\nWhat is the y coordinate of the point?\n"))
+        pointList.append(pointX)
+        pointList.append(pointY)
+    for x in range(0,len(pointList)):
+        for x in range(0,len(directionsList)):
+            print("    " + directionsList[x] + "\n ==============================")
+        selectedDirection = equationPart(input("\nWhat direction is the rotation?\n"))
+
+        for y in range(0,len(degreeList)):
+            print("    " + degreeList[y] + "\n ==============================")
+        selectedDegree = equationPart(input("\nWhat is the degree of the rotation?\n"))
+
+        if selectedDirection == directionsList[0].lower():
+            if selectedDegree == degreeList[0]:
+                result = str(pointList2[x]) + " " + str(pointList[x] * -1)
+            elif selectedDegree == degreeList[1]:
+                result = str(pointList[x] * -1) + " " + str(pointList2[x] * -1)
+            else:
+                result = str(pointList2[x] * -1) + " " + str(pointList[x])
+
+        elif selectedDirection == directionsList[1].lower():
+            print()elif selectedOperation == 9:
     distanceX1 =  equationPart(input("\nWhat is the first x coordinate?\n"))
     distanceX2 = equationPart(input("\nWhat is the second x coordinate?\n"))
     distanceY1 = equationPart(input("\nWhat is the first y coordinate?\n"))
