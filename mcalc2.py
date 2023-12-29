@@ -8,8 +8,6 @@ import os
 # Operations list is below functions
 #
 # TO-DO: 
-# learn how to use github properly
-# ~~make github page for this so i can access on laptop also~~
 # make digital version of docs
 # add more operations
 # after all operations are added, add gui??? maybe???
@@ -231,3 +229,13 @@ elif selectedOperation == 8:
     resultFunc(result)
 
 # distance =====================
+elif selectedOperation == 9:
+    distanceX1 =  equationPart(input("\nWhat is the first x coordinate?\n"))
+    distanceX2 = equationPart(input("\nWhat is the second x coordinate?\n"))
+    distanceY1 = equationPart(input("\nWhat is the first y coordinate?\n"))
+    distanceY2 = equationPart(input("\nWhat is the second y coordinate?\n"))
+    result = math.sqrt((distanceX2 - distanceX1) ** 2) + ((distanceY2 + distanceY1) ** 2)
+    resultFunc(result)
+
+
+    
