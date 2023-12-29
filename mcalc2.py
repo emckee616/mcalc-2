@@ -286,7 +286,10 @@ elif selectedOperation == 11:
                 result = str(pointList2[x] * -1) + " " + str(pointList[x])
 
         elif selectedDirection == directionsList[1].lower():
-            print()elif selectedOperation == 9:
+            print()
+
+# distance =====================
+elif selectedOperation == 9:
     distanceX1 =  equationPart(input("\nWhat is the first x coordinate?\n"))
     distanceX2 = equationPart(input("\nWhat is the second x coordinate?\n"))
     distanceY1 = equationPart(input("\nWhat is the first y coordinate?\n"))
